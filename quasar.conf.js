@@ -54,7 +54,13 @@ module.exports = function (ctx) {
         'QItemSide',
         'QBtnDropdown',
         'QItemTile',
-        'QItemSeparator'
+        'QItemSeparator',
+        'QChip',
+        'QCarousel',
+        'QCarouselSlide',
+        'QCarouselControl',
+        'QToggle',
+        'QProgress'
       ],
       directives: [
         'Ripple',
