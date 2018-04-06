@@ -1,0 +1,25 @@
+{
+  "name": "ucf",
+  "version": "1.0.0",
+  "description": "a mobile application to have some fun!",
+  "productName": "ultimate cricket fantasy hybrid app",
+  "cordovaId": "21",
+  "author": "dhruv94mishra@gmail.com",
+  "private": true,
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "quasar-cli": "^0.15.14"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
+}
