@@ -10,10 +10,10 @@ module.exports = function (ctx) {
     ],
     extras: [
       ctx.theme.mat ? 'roboto-font' : null,
-      'material-icons'
+      'material-icons',
       // 'ionicons',
       // 'mdi',
-      // 'fontawesome'
+       'fontawesome'
     ],
     supportIE: false,
     vendor: {
@@ -40,6 +40,8 @@ module.exports = function (ctx) {
       components: [
         'QLayout',
         'QLayoutHeader',
+        'QLayoutFooter',
+        'QPageSticky',
         'QLayoutDrawer',
         'QPageContainer',
         'QPage',
@@ -60,15 +62,20 @@ module.exports = function (ctx) {
         'QCarouselSlide',
         'QCarouselControl',
         'QToggle',
-        'QProgress'
+        'QProgress',
+        'QFab',
+        'QFabAction'
       ],
       directives: [
         'Ripple',
         'CloseOverlay'
+       
       ],
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'Dialog'
+       
       ]
     },
     // animations: 'all' --- includes all animations

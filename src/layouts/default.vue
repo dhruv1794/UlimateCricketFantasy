@@ -4,9 +4,9 @@
       <app-header/>
     </q-layout-header>
 
-    <q-page-container>
+    <div style='padding-top:92px;'>
       <!-- <router-view /> -->
-      <div  class="row justify-center">
+      <div  class="row justify-center" style='min-height:80vh;'>
          <div class="q-pa-sm">
           <p class="caption">
      
@@ -17,7 +17,7 @@
         @click="slide = 1"
         icon="arrow_downward"
         label="Navigate to second slide"
-        class="q-ml-sm right-pull"
+        class="q-ml-sm right-pull color-tertiary"
       />
     </p>
     <q-carousel
@@ -70,34 +70,29 @@
     </q-carousel>
       </div>
     </div>
-    </q-page-container>
+        <q-page-sticky position="bottom-right" :offset="[18, 18]">
+      <q-fab
+        icon="add"
+        direction="up"
+        color="primary"
+      >
+        <q-fab-action @click="alert" color="blue" class="white" icon="person add" />
+        <q-fab-action @click="notify('mail')" color="blue" class="white" icon="mail" />
+      </q-fab>
+    </q-page-sticky>
+    <app-footer/>
+    </div>
+  
   </q-layout>
 </template>
 
-<script>
-import { openURL } from 'quasar'
 
-export default {
-  name: 'LayoutDefault',
-  data () {
-    return {
-     
-    }
-  },
-  methods: {
-    openURL
-    
-  }
-}
-</script>
-
-<style>
-</style>
 
 
 <script>
 import { openURL, easing } from 'quasar'
-import Header from '../components/Header.vue'
+import Header from '../components/commons/Header.vue'
+import Footer from '../components/commons/Footer.vue'
 
 export default {
   name: 'LayoutDefault',
@@ -118,13 +113,28 @@ export default {
     }
   },
   components:{
-    'app-header':Header
+    'app-header':Header,
+    'app-footer':Footer
   },
   methods: {
     openURL,
      showNotification () {
       this.$q.notify('Site under construction!')
+    },
+        alert () {
+      this.$q.dialog({
+        title: 'FAB',
+        message: 'Good job! Keep it going.'
+      })
+    },
+    notify (icon) {
+      this.$q.notify({
+        icon,
+        message: 'So you want your ' + icon + 's, huh?'
+      })
     }
+   
+  
   }
 }
 </script>
