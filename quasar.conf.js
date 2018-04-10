@@ -64,7 +64,14 @@ module.exports = function (ctx) {
         'QToggle',
         'QProgress',
         'QFab',
-        'QFabAction'
+        'QFabAction',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions',
+        'QTooltip'
       ],
       directives: [
         'Ripple',

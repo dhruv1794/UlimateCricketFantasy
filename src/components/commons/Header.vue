@@ -5,7 +5,7 @@
         :inverted="$q.theme === 'ios'"
       >
         <q-toolbar-title>
-          <img src='../../assets/UCF_logo.png' class='logo_styl'/>
+          <img src='../../assets/UCF_logo.jpg' class='logo_styl'/>
         </q-toolbar-title>
         <a class='header-links' @click="showNotification">Live Scores</a>
         <a class='header-links' @click="showNotification">Verify</a>

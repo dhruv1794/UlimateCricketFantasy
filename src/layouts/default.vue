@@ -68,6 +68,13 @@
         <q-progress :percentage="carousel.percentage" stripe color="amber" :animate="autoplay" />
       </q-carousel-control>
     </q-carousel>
+     <h3 class='in-site-head'>Public Leagues </h3>
+    <div class='row justify-center'>
+     
+      <div class='gametile-div col-md-4' :key='index' v-for='(item,index) in GameTileJson'>
+        <app-game-tile :information='item'></app-game-tile>
+      </div>
+    </div>
       </div>
     </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
@@ -93,12 +100,15 @@
 import { openURL, easing } from 'quasar'
 import Header from '../components/commons/Header.vue'
 import Footer from '../components/commons/Footer.vue'
+import GameTile from '../components/commons/GameTile.vue'
+import GameTileJson from '../statics/gametile.js'
 
 export default {
   name: 'LayoutDefault',
   data () {
     return {
       slide: 0,
+      GameTileJson:GameTileJson,
     autoplay: true,
     colors: [
       'primary',
@@ -114,7 +124,8 @@ export default {
   },
   components:{
     'app-header':Header,
-    'app-footer':Footer
+    'app-footer':Footer,
+    'app-game-tile':GameTile,
   },
   methods: {
     openURL,
