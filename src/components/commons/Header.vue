@@ -3,6 +3,7 @@
         color="primary"
        
         :inverted="$q.theme === 'ios'"
+        glossy
       >
         <q-toolbar-title>
           <img src='../../assets/UCF_logo.png' class='logo_styl'/>
