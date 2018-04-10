@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr lFf"  @scroll='changeDirection'>
     <q-layout-header>
       <app-header/>
     </q-layout-header>
@@ -43,7 +43,15 @@
                    <p> {{match.opponent_two}}</p>
                 </div>
             </div>
+           
           </div>
+           <p style='text-align:center' justify-center>
+              <q-btn>Join
+                <q-tooltip>
+                  join this league by creating a team
+                </q-tooltip>
+              </q-btn>
+            </p>
         </div>
       </q-carousel-slide>
 
@@ -80,13 +88,41 @@
       </div>
     </div>
         <q-page-sticky position="bottom-right" :offset="[18, 18]">
+  
+  
       <q-fab
         icon="add"
-        direction="up"
+        :direction="direction"
         color="primary"
+        glossy
+        class='color-tertiary'
+       
       >
-        <q-fab-action @click="alert" color="blue" class="white" icon="person add" />
-        <q-fab-action @click="notify('mail')" color="blue" class="white" icon="mail" />
+
+       <q-fab-action @click="alert" color="secondary" class="white" icon="home" v-if=" direction =='down' " />
+        <span class='menu-title' v-if=" direction =='down' ">
+           Home
+        </span>
+      <!-- my league -->
+        <q-fab-action @click="alert" color="secondary" class="white" icon="whatshot" />
+        <span class='menu-title'>
+           My Leagues
+        </span>
+        <!-- my wallet -->
+        <q-fab-action @click="notify('mail')" color="secondary" class="white" icon="attach money" />
+        <span class='menu-title'>
+           Wallet
+        </span>
+        <!-- add team -->
+        <q-fab-action @click="notify('mail')" color="secondary" class="white" icon="surround sound" />
+        <span class='menu-title'>
+           Team
+        </span>
+        <!-- show leagues -->
+        <q-fab-action @click="notify('mail')" color="secondary" class="white" icon="remove from queue" />
+        <span class='menu-title'>
+           All Leagues
+        </span>
       </q-fab>
     </q-page-sticky>
     <app-footer/>
@@ -111,6 +147,7 @@ export default {
   data () {
     return {
       slide: 0,
+      direction:'down',
       GameTileJson:GameTileJson,
       matches:matches,
     autoplay: true,
@@ -133,6 +170,16 @@ export default {
   },
   methods: {
     openURL,
+    changeDirection(e){
+      console.log(e,'##')
+   
+        if(e.position > 376){
+          this.direction = 'up'
+        }else{
+           this.direction = 'down'
+        }
+
+    },
      showNotification () {
       this.$q.notify('Site under construction!')
     },
