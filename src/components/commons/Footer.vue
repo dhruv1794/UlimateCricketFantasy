@@ -1,7 +1,7 @@
 <template>
     <q-layout-footer class='custom-footer'>
       
-      <q-toolbar :inverted="$q.theme === 'ios'">
+      <q-toolbar :inverted="$q.theme === 'ios'" style="background:#fff !important">
        
         <q-toolbar-title class='footer-text'>
            <a class='header-links' @click='showNotification'>About us</a>

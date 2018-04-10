@@ -10,15 +10,7 @@
          <div class="q-pa-sm">
           <p class="caption">
      
-      <q-btn
-        rounded
-        
-        color="primary"
-        @click="slide = 1"
-        icon="arrow_downward"
-        label="Navigate to second slide"
-        class="q-ml-sm right-pull color-tertiary"
-      />
+    
     </p>
     <q-carousel
       v-model="slide"
@@ -30,13 +22,28 @@
       class='carousel-main-page'
     >
       <q-carousel-slide
-        v-for="n in 7" :key="`car-${n}`"
+        v-for="(match,n) in matches" :key="`car-${n}`"
         class="flex flex-center"
         :class="`bg-${colors[n % 5]}`"
       >
         <div class="text-center">
-          <div class="q-display-3">Slide {{ n }}</div>
-          <div>Slides can contain any content.</div>
+          <!-- <div class="q-display-3">
+          
+          </div> -->
+          <div class='row'>
+            <div class='col-6'>
+              <div class='image-wrapper'>
+                <img class='image-content' :src='match.opponent_one_logo'/>
+                <p> {{match.opponent_one}}</p>
+              </div>
+            </div>
+            <div class='col-6'>
+                <div class='image-wrapper'>
+                  <img class='image-content' :src='match.opponent_two_logo'/>
+                   <p> {{match.opponent_two}}</p>
+                </div>
+            </div>
+          </div>
         </div>
       </q-carousel-slide>
 
@@ -56,12 +63,7 @@
         position="bottom-right"
         :offset="[18, 22]"
       >
-        <q-btn
-          round dense push
-          color="amber"
-          :icon="carousel.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
-          @click="carousel.toggleFullscreen()"
-        />
+       
       </q-carousel-control>
 
       <q-carousel-control slot="control-progress" slot-scope="carousel" position="bottom" :offset="[42, 100]">
@@ -102,6 +104,7 @@ import Header from '../components/commons/Header.vue'
 import Footer from '../components/commons/Footer.vue'
 import GameTile from '../components/commons/GameTile.vue'
 import GameTileJson from '../statics/gametile.js'
+import matches from '../statics/matches.js'
 
 export default {
   name: 'LayoutDefault',
@@ -109,6 +112,7 @@ export default {
     return {
       slide: 0,
       GameTileJson:GameTileJson,
+      matches:matches,
     autoplay: true,
     colors: [
       'primary',
