@@ -35,7 +35,7 @@
            
           </div>
            <p style='text-align:center' justify-center>
-              <q-btn @click='joinLeague'>Join
+              <q-btn @click='joinLeague' icon-right='send' outline>Join
                 <q-tooltip>
                   join this league by creating a team
                 </q-tooltip>

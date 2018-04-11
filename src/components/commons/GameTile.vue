@@ -30,7 +30,7 @@
     </p>
   </q-card-main>
    <q-card-actions>
-        <q-btn  color='primary' @click='joinLeague'>Join</q-btn>
+        <q-btn  color='tertiary' icon-right='send' @click='joinLeague'>Join</q-btn>
        
       </q-card-actions>
     </q-card>
