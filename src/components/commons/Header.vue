@@ -9,7 +9,7 @@
           <img src='../../assets/UCF_logo.png' class='logo_styl' @click='gotoHome'/>
         </q-toolbar-title>
         <a class='header-links' @click="showNotification">Live Scores</a>
-        <a class='header-links' @click="showNotification">Verify</a>
+        <a class='header-links' @click="gotoVerify">Verify</a>
         <a class='header-links'>
           <q-btn-dropdown
             color="secondary"
@@ -84,6 +84,9 @@ export default {
     },
     gotoHome(){
       this.$router.push({name:'Home'})
+    },
+    gotoVerify(){
+      this.$router.push({name:'Verify'})
     }
   }
 }

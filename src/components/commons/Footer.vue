@@ -7,9 +7,9 @@
            <a class='header-links' @click='gotoAbout'>About us</a>
            <a class='header-links' @click='gotoFAQ'>FAQS</a>
            <a class='header-links' @click='gotoFantasyCricketLegalities'>Fantasy cricket Legalities</a>
-           <a class='header-links' @click='showNotification'>Contact us</a>
-           <a class='header-links' @click='showNotification'>Fantasy point system</a>
-           <a class='header-links' @click='showNotification'>Terms &amp; conditions</a>
+           <a class='header-links' @click='gotoContactUs'>Contact us</a>
+           <a class='header-links' @click='gotoPointSystem'>Fantasy point system</a>
+           <a class='header-links' @click='gotoTermAndConditions'>Terms &amp; conditions</a>
            <br/>
           <br/>
           <p>Follow us on </p>
@@ -43,8 +43,17 @@ export default {
     },
     gotoFantasyCricketLegalities(){
         this.$router.push({name:'FantasyCricketLegalities'})
+    },
+    gotoTermAndConditions(){
+        this.$router.push({name:'TermsAndCondition'})
+    },
+    gotoPointSystem(){
+        this.$router.push({name:'PointSystem'})
+    },
+    gotoContactUs(){
+        this.$router.push({name:'ContactUs'})
     }
-  }
+}
 }
 </script>
 <style>
