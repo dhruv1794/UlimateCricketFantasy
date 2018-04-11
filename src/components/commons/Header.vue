@@ -6,7 +6,7 @@
         glossy
       >
         <q-toolbar-title>
-          <img src='../../assets/UCF_logo.png' class='logo_styl'/>
+          <img src='../../assets/UCF_logo.png' class='logo_styl' @click='gotoHome'/>
         </q-toolbar-title>
         <a class='header-links' @click="showNotification">Live Scores</a>
         <a class='header-links' @click="showNotification">Verify</a>
@@ -81,6 +81,9 @@ export default {
     
      showNotification () {
       this.$q.notify('Site under construction')
+    },
+    gotoHome(){
+      this.$router.push({name:'Home'})
     }
   }
 }

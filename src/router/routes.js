@@ -4,7 +4,11 @@ export default [
     path: '/',
     component: () => import('layouts/default'),
     children: [
-      { path: '', component: () => import('pages/index') }
+      { path: '',name:'Home', component: () => import('components/Home') },
+      { path: '/AboutUs', name:'AboutUs' ,component: () => import('components/AboutUs') },
+      { path: '/FAQ', name:'FAQ' ,component: () => import('components/FAQ') },
+      { path: '/FantasyCricketLegalities', name:'FantasyCricketLegalities' ,component: () => import('components/FantasyCricketLegalities') },
+      { path: '/TermsAndCondition', name:'TermsAndCondition' ,component: () => import('components/TermsAndCondition') },
     ]
   },
 

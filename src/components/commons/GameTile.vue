@@ -4,9 +4,21 @@
     {{information.title}}
   </q-card-title>
   <q-card-separator />
-  <q-card-main>
-    <p>Pay:{{information.pay_amount}}</p>
-    <p>{{information.total_players}} / {{information.total_allowed}}</p>
+  <q-card-main >
+    <!-- <p>Pay:{{information.pay_amount}}</p> -->
+    <p><q-chip icon="attach money" detail color="tertiary">
+       Pay: {{information.pay_amount}} ₹
+    </q-chip></p>
+    <q-knob
+       readonly
+       color='primary'
+       trackColor='warning'
+       v-model='information.total_players'
+        :min="0"
+        :max="information.total_allowed"
+        >
+        <q-icon class="on-left" name="people outline" /> {{information.total_players}} / {{information.total_allowed}}
+    </q-knob>
     <p class='game-tile-icon-layer'>
         <q-icon name='monetization on' color='neutral' v-if='information.paid'></q-icon>
         <q-icon name='block' color='neutral' v-if='information.CANCEL' >
@@ -18,7 +30,7 @@
     </p>
   </q-card-main>
    <q-card-actions>
-        <q-btn  color='primary'>Join</q-btn>
+        <q-btn  color='primary' @click='joinLeague'>Join</q-btn>
        
       </q-card-actions>
     </q-card>
@@ -26,8 +38,14 @@
 <script>
 export default {
     props:[
-        'information'
-    ]
+        'information',
+        
+    ],
+    methods:{
+        joinLeague(){
+            this.$emit('joinLeague')
+        }
+    }
 }
 </script>
 <style lang="stylus">
